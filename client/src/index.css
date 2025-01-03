@@ -1,0 +1,154 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Ball Animation */
+@keyframes moveBall {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(150px, 100px);
+  }
+  50% {
+    transform: translate(300px, 200px);
+  }
+  75% {
+    transform: translate(450px, 100px);
+  }
+  100% {
+    transform: translate(600px, 0);
+  }
+}
+
+@keyframes moveBallReverse {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-150px, -100px);
+  }
+  50% {
+    transform: translate(-300px, -200px);
+  }
+  75% {
+    transform: translate(-450px, -100px);
+  }
+  100% {
+    transform: translate(-600px, 0);
+  }
+}
+
+/* Ball Styling */
+.ball-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.ball {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+  z-index: -2; /* Balls are behind the content */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  transition: backdrop-filter 0.3s ease-in-out;
+}
+
+/* Specific ball colors */
+.ball-blue {
+  background-color: #3b82f6;
+}
+
+.ball-pink {
+  background-color: #ec4899;
+}
+
+/* Ball Movement with Random Durations */
+.ball-0 {
+  animation-name: moveBall;
+  animation-duration: 12s;
+  top: 10%;
+  left: 20%;
+}
+
+.ball-1 {
+  animation-name: moveBallReverse;
+  animation-duration: 11s;
+  top: 20%;
+  left: 10%;
+}
+
+.ball-2 {
+  animation-name: moveBall;
+  animation-duration: 13s;
+  top: 30%;
+  left: 30%;
+}
+
+.ball-3 {
+  animation-name: moveBallReverse;
+  animation-duration: 14s;
+  top: 40%;
+  left: 40%;
+}
+
+.ball-4 {
+  animation-name: moveBall;
+  animation-duration: 16s;
+  top: 50%;
+  left: 50%;
+}
+
+.ball-5 {
+  animation-name: moveBallReverse;
+  animation-duration: 15s;
+  top: 60%;
+  left: 60%;
+}
+
+.ball-6 {
+  animation-name: moveBall;
+  animation-duration: 18s;
+  top: 70%;
+  left: 70%;
+}
+
+.ball-7 {
+  animation-name: moveBallReverse;
+  animation-duration: 17s;
+  top: 80%;
+  left: 80%;
+}
+
+.ball-8 {
+  animation-name: moveBall;
+  animation-duration: 14s;
+  top: 10%;
+  left: 60%;
+}
+
+.ball-9 {
+  animation-name: moveBallReverse;
+  animation-duration: 13s;
+  top: 20%;
+  left: 80%;
+}
+
+/* Optional: Blurred balls when behind content */
+.ball-container .ball {
+  filter: blur(10px);
+  transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+/* Increase velocity when the ball is behind the content */
+.ball-container .ball:hover {
+  transform: scale(1.2); /* Example of increasing speed on hover */
+  filter: blur(5px); /* Decrease blur on hover */
+}
